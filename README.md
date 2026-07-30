@@ -319,7 +319,7 @@ https://github.com/SammidiNishithReddy
 
 **LinkedIn**
 
-https://www.linkedin.com/in/sammidi-nishith-reddy/
+https://www.linkedin.com/in/sammidi-nishith-r%C3%AAddy-0831a5328/
 
 ---
 
