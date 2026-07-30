@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heritage Sites in India</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  .image-heading {
+      width: 100%;
+      height: auto; 
+      max-height: 150px;
+      display: block;
+      margin: 0 auto;
+  }
+  .image {
+            width: auto; 
+            height: auto; 
+            max-width: 2000%; 
+            max-height: 700px; 
+            display: block;
+            margin: 0 auto;
+        }
+  p::first-letter {
+      font-size: 2em;
+      font-weight: bold;
+          
+  }
+  
+  .container {
+        display: grid;
+        grid-template-columns: 200px auto;      /* It seperates the page into the two columns */
+        grid-gap: 20px; 
+    }
+
+    
+    .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: #f0f0f0;          /* Styles tabs with padding, background color, and borders */
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    .tab.active {
+        background-color: #fff;
+        border-bottom: 1px solid #fff;      /* Styles the active tab to stand out */
+    }
+    .tab-content {
+        display: none;
+    }
+    .active {
+        display: block;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+    .site-image {
+        max-width: 100px;
+        max-height: 100px;
+        display: block;
+        margin: 0 auto;
+    }
+    .full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #302f49;
+      padding: 40px 80px;
+    }
+
+    .footer .copy {
+      color: #fff;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px 20px;
+    }
+    .links {
+    display: flex;
+    align-items: center;
+}
+
+.links span {
+    margin-right: 20px;
+}
+.no-underline {
+            text-decoration: none;
+            color: inherit;
+        }
+        #map {
+            height: 600px; 
+            width: 100%; 
+            text-align: center;
+        }
+
+</style>
+</head>
+<body>
+<img class="image-heading" src="photo2.jpg" alt="Image Heading">
+<p>The United Nations Educational, Scientific and Cultural Organization (UNESCO) designates World Heritage Sites of outstanding universal value to cultural or natural heritage which have been nominated by countries which are signatories to the UNESCO World Heritage Convention, established in 1972.Cultural heritage consists of monuments (such as architectural works, monumental sculptures, or inscriptions), groups of buildings, and sites (including archaeological sites). Natural features (consisting of physical and biological formations), geological and physiographical formations (including habitats of threatened species of animals and plants), and natural sites which are important from the point of view of science, conservation or natural beauty, are defined as natural heritage.India accepted the convention on 14 November 1977, making its sites eligible for inclusion on the list.</p>
+<p1>There are 42 World Heritage Sites in India. Out of these, 34 are cultural, seven are natural, and one, Khangchendzonga National Park, is of mixed type. India has the sixth-most sites worldwide. The first sites to be listed were the Ajanta Caves, Ellora Caves, Agra Fort, and Taj Mahal, all of which were inscribed in the 1983 session of the World Heritage Committee. The most recent sites listed were Santiniketan and the Sacred Ensembles of the Hoysalas, in 2023.At different times, two sites were listed as endangered: the Manas Wildlife Sanctuary was listed between 1992 and 2011 due to poaching and the activities of Bodo militias,and the monuments at Hampi were listed between 1999 and 2006 due to risks from increased traffic and new constructions in surroundings.One site is transnational: The Architectural Work of Le Corbusier is shared with six other countries.In addition, India has 57 sites on its tentative list.</p1>
+<h1>World Heritage Sites in India</h1>
+<div class="container">
+    <div class="tabs">
+        <div class="tab" onclick="showContent('Top')">
+            About Top 5 World Heritage Sites in India
+        </div>
+        <div class="tab" onclick="showContent('World')">
+            List of 42 Indian Heritage Sites
+        </div>
+        <div class="tab" onclick="showContent('Map')">
+            MAP
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="Top" class="tab-content active">
+            <h2>Top 5 World Heritage Sites in India</h2>
+            <h3>1.Taj Mahal</h3>
+            <img class="image" src="Tajphoto.jpg" alt="Taj Mahal">
+            <p2>Location – Agra</p2>
+            <p>This is a heritage site and one of the Seven Wonders of the World. Built in 17th century by Emperor Shah Jahan of Mughal Empire for his late wife, Mumtaz Mahal. Taj Mahal is an important tourist destination and the most-visited site of the country. The architectural beauty of the monument is the main attraction of this site. Apart from this, you can spot a perfect Mughal styled garden around it. Visit to the Taj Mahal on Full Moon Night is considered as the romantic activity in Agra.</p>
+        </div>
+        <div id="Top" class="tab-content active">
+            <h3>2.Agra Fort</h3>
+            <img class="image" src="agraphoto.jpg" alt="Agra Fort">
+            <p2>Location – Delhi</p2>
+            <p>This monument is famous for its red sandstone architecture. When Mughal empire’s capital was at New Delhi, Red Fort was the official residence of the royals. Shah Jahan, the king behind Taj Mahal, built Red Fort to the current structure. The fort holds architectural elements of Persian, Islamic and Hindu style. The fort holds numerous smaller monuments and palaces like hall of public audience, hall of private audience, pavilions, courtyards, gardens, mosques and others. Red Fort is famous for Sound & Light Show which is organized every evening.</p>
+        </div>
+        <div id="Top" class="tab-content active">
+            <h3>3.Ramappa Temple</h3>
+            <img class="image" src="templephoto.jpg" alt="Ramappa Temple">
+            <p2>Location – Telangana</p2>
+            <p>Ramappa Temple, also known as the Rudreswara temple, is a Kakatiya style Hindu temple dedicated to the Hindu god Shiva, located in Palamet village, Mulugu district , Telangana, India. It is 15 km (9.3 mi) from Mulugu, 66 km (41 mi) from Warangal, 209 km (130 mi) from Hyderabad. An inscription in the temple says it was constructed in the year 1213 CE by Recherla Rudra—a general of Kakatiya ruler Ganapati Deva (r. 1199–1262).Located in the vicinity of Ramappa Lake, the Ramappa Temple complex which consist of three temples was constructed between 1212 and 1234, designed and architect by Ramappa—after whom the temple complex is named.Marco Polo, during his visit to the Kakatiya empire, supposedly called the temple "the brightest star in the galaxy of temples".In July 2021, Ramappa Temple was declared as a UNESCO World Heritage Site.</p>
+        </div>
+        <div id="Top" class="tab-content active">
+            <h3>4.Sundarbans National Park</h3>
+            <img class="image" src="Sundarbanphoto.jpg" alt="Sundarbans National Park">
+            <p2>Location – West Bengal</p2>
+            <p>The Sundarbans National Park is a national park, tiger reserve and biosphere reserve in West Bengal, India. It is part of the Sundarbans on the Ganges Delta and adjacent to the Sundarban Reserve Forest in Bangladesh. It is located to south-west of Bangladesh. The delta is densely covered by mangrove forests, and is one of the largest reserves for the Bengal tiger. It is also home to a variety of bird, reptile and invertebrate species, including the salt-water crocodile. The present Sundarban National Park was declared as the core area of Sundarban Tiger Reserve in 1973 and a wildlife sanctuary in 1977. On 4 May 1984 it was declared a national park. It is a UNESCO World Heritage Site inscribed in 1987,and it has been designated as a Ramsar site since 2019.It is considered as a World Network of Biosphere Reserve (Man and Biosphere Reserve) from 1989.</p>
+        </div>
+        <div id="Top" class="tab-content active">
+            <h3>5.Khangchendzonga National Park</h3>
+            <img class="image" src="Kangchenjungaphoto.jpg" alt="Khangchendzonga National Park,">
+            <p2>Location – Sikkim</p2>
+            <p>Khangchendzonga National Park, also Kanchenjunga Biosphere Reserve, is a national park and a biosphere reserve located in Sikkim, India. It was inscribed to the UNESCO World Heritage Sites list in July 2016, becoming the first "Mixed Heritage" site of India.It was included in the UNESCO Man and the Biosphere Programme. The park is named after the mountain Kangchenjunga, which is the third-highest peak in the world at 8,586 m (28,169 ft) tall. The total area of the park is 849.5 km2 (328.0 sq mi).</p>
+        </div>
+
+        <div id="World" class="tab-content">
+            <table>
+                <tr>
+                    <th>Site Name</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Year Inscribed</th>
+                    <th>Photo</th>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Taj_Mahal" target="_blank" class="no-underline">Taj Mahal</a></td>
+                    <td>Agra</td>
+                    <td>Cultural</td>
+                    <td>1983</td>
+                    <td><img src="Tajphoto.jpg" alt="Taj Mahal" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Agra_Fort" target="_blank" class="no-underline">Agra Fort</a></td>
+                    <td>Agra</td>
+                    <td>Historical</td>
+                    <td>1983</td>
+                    <td><img src="agraphoto.jpg" alt="Agra Fort" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Ajanta_Caves" target="_blank" class="no-underline">Ajanta Caves</a></td>
+                    <td>Maharashtra</td>
+                    <td>Historical</td>
+                    <td>1983</td>
+                    <td><img src="ajantaphoto.jpeg" alt="Ajanta Caves" class="site-image" class="no-underline"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Ellora_Caves" target="_blank" class="no-underline">Ellora Caves</a></td>
+                    <td>Maharashtra</td>
+                    <td>Historical</td>
+                    <td>1983</td>
+                    <td><img src="elloraphoto.jpg" alt="Ellora Caves" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Group_of_Monuments_at_Mahabalipuram" target="_blank" class="no-underline">Group of Monuments at Mahabalipuram</a></td>
+                    <td>Tamil Nadu</td>
+                    <td>Cultural,<br>Religion,<br>Tradition</td>
+                    <td>1984</td>
+                    <td><img src="mahabalipuramphoto.jpeg" alt="Group of Monuments at Mahabalipuram" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Konark_Sun_Temple" target="_blank" class="no-underline">Sun Temple</a></td>
+                    <td>Odisha</td>
+                    <td>Religion,<br>Spiritual Activities</td>
+                    <td>1984</td>
+                    <td><img src="suntemplephoto.jpeg" alt="Sun Temple" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Kaziranga_National_Park" target="_blank" class="no-underline">Kaziranga National Park</a></td>
+                    <td>Assam</td>
+                    <td>Natural</td>
+                    <td>1985</td>
+                    <td><img src="kazirangaphoto.jpeg" alt="Kaziranga National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Keoladeo_National_Park" target="_blank" class="no-underline">Keoladeo National Park</a></td>
+                    <td>Rajasthan</td>
+                    <td>Natural</td>
+                    <td>1985</td>
+                    <td><img src="Keoladeophoto.jpg" alt="Keoladeo National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Manas_National_Park" target="_blank" class="no-underline">Manas Wildlife Sanctuary</a></td>
+                    <td>Assam</td>
+                    <td>Natural</td>
+                    <td>1985</td>
+                    <td><img src="Manasphoto.jpg" alt="Manas Wildlife Sanctuary" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Churches_and_convents_of_Goa" target="_blank" class="no-underline">Churches and Convents of Goa</a></td>
+                    <td>Goa</td>
+                    <td>Cultural,<br>Spiritual</td>
+                    <td>1986</td>
+                    <td><img src="churchphoto.jpg" alt="Churches and Convents of Goa" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Fatehpur_Sikri" target="_blank" class="no-underline">Fatehpur Sikri</a></td>
+                    <td>Uttar Pradesh</td>
+                    <td>Cultural</td>
+                    <td>1986</td>
+                    <td><img src="fatepurphoto.jpg" alt="Fatehpur Sikri" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Hampi" target="_blank" class="no-underline">Group of Monuments at Hampi</a></td>
+                    <td>Karnataka</td>
+                    <td>Cultural</td>
+                    <td>1986</td>
+                    <td><img src="hampiphoto.jpeg" alt="Group of Monuments at Hampi" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Khajuraho_Group_of_Monuments" target="_blank" class="no-underline">Khajuraho Group of Monuments</a></td>
+                    <td>Madhya Pradesh</td>
+                    <td>Cultural</td>
+                    <td>1986</td>
+                    <td><img src="khajurahophoto.jpg" alt="Khajuraho Group of Monuments" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Elephanta_Caves" target="_blank" class="no-underline">Elephanta Caves</a></td>
+                    <td>Maharashtra</td>
+                    <td>Cultural</td>
+                    <td>1987</td>
+                    <td><img src="elephantacavesphoto.jpg" alt="Elephanta Caves" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Great_Living_Chola_Temples" target="_blank" class="no-underline">Great Living Chola Temples</a></td>
+                    <td>Tamil Nadu</td>
+                    <td>Cultural</td>
+                    <td>1987</td>
+                    <td><img src="cholaphoto.jpg" alt="Chola Temple" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Pattadakal" target="_blank" class="no-underline">Gruop of Monuments at Pattadakal</a></td>
+                    <td>Karnataka</td>
+                    <td>Cultural</td>
+                    <td>1987</td>
+                    <td><img src="Pattadakalphoto.jpg" alt="Gruop of Monuments" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Sundarbans_National_Park" target="_blank" class="no-underline">Sundarbans National Park</a></td>
+                    <td>West Bengal</td>
+                    <td>Natural</td>
+                    <td>1987</td>
+                    <td><img src="Sundarbanphoto.jpg" alt="Sundarbans National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Valley_of_Flowers_National_Park" target="_blank" class="no-underline">Nanda Devi and Valley of Flowers National Park</a></td>
+                    <td>Uttarakhand</td>
+                    <td>Natural</td>
+                    <td>1988</td>
+                    <td><img src="nandadeviphoto.jpg" alt="Nanda Devi and Valley of Flowers National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Sanchi" target="_blank" class="no-underline">Buddhist Monuments at Sanchi</a></td>
+                    <td>Madhya Pradesh</td>
+                    <td>Cultural</td>
+                    <td>1989</td>
+                    <td><img src="buddhistphoto.jpg" alt="Buddhist Monuments" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Humayun%27s_Tomb" target="_blank" class="no-underline">Humayun's Tomb</a></td>
+                    <td>Delhi</td>
+                    <td>Cultural</td>
+                    <td>1993</td>
+                    <td><img src="humayunphoto.jpg" alt="Humayun's Tomb" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Qutb_Minar" target="_blank" class="no-underline">Qutb Minar</a></td>
+                    <td>Delhi</td>
+                    <td>Cultural,<br>Historical</td>
+                    <td>1993</td>
+                    <td><img src="qutbminarphoto.jpg" alt="Qutb Minar" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Mountain_railways_of_India" target="_blank" class="no-underline">Mountain Railways of India</a></td>
+                    <td>West Bengal,Tamil Nadu,Himachal Pradesh</td>
+                    <td>Cultural,<br>Historical,<br>Technological Significance</td>
+                    <td>1999</td>
+                    <td><img src="mountainrailwayphoto.webp" alt="Mountain Railways of India" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Mahabodhi_Temple" target="_blank" class="no-underline">Mahabodhi Temple Complex at Bodh Gaya</a></td>
+                    <td>Bihar</td>
+                    <td>Cultural</td>
+                    <td>2002</td>
+                    <td><img src="Mahabodhiphoto.webp" alt="Mahabodhi Temple Complex" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Bhimbetka_rock_shelters" target="_blank" class="no-underline">Rock shelters of Bhimbetka</a></td>
+                    <td>Madhya Pradesh</td>
+                    <td>Cultural</td>
+                    <td>2003</td>
+                    <td><img src="Bhimbetkaphoto.jpg" alt="Rock shelters of Bhimbetka" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Chhatrapati_Shivaji_Terminus" target="_blank" class="no-underline">Chatrapati Shivaji Terminus</a></td>
+                    <td>Maharashtra</td>
+                    <td>Historical</td>
+                    <td>2004</td>
+                    <td><img src="chhatrapatiphoto.jpeg" alt="Chatrapati Shivaji Terminus" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Champaner-Pavagadh_Archaeological_Park" target="_blank" class="no-underline">Champaner-Pavagadh Archaeological Park</a></td>
+                    <td>Gujarat</td>
+                    <td>Cultural,<br>Historical</td>
+                    <td>2004</td>
+                    <td><img src="Champanerphoto.jpg" alt="Champaner-Pavagadh Archaeological Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Red_Fort" target="_blank" class="no-underline">Red Fort</a></td>
+                    <td>Delhi</td>
+                    <td>Cultural,<br>Historical</td>
+                    <td>2007</td>
+                    <td><img src="Redfortphoto.jpg" alt="Red Fort" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Jantar_Mantar" target="_blank" class="no-underline">Jantar Mantar</a></td>
+                    <td>Rajasthan</td>
+                    <td>Cultural,<br>Historical</td>
+                    <td>2010</td>
+                    <td><img src="jantarmantarphoto.jpeg" alt="Jantar Mantar" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Western_Ghats" target="_blank" class="no-underline">Western Ghats</a></td>
+                    <td>Maharashtra,Karnataka,Kerala,Tamil Nadu</td>
+                    <td>Natural</td>
+                    <td>2012</td>
+                    <td><img src="westernghatsphoto.jpeg" alt="Western Ghats" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Hill_Forts_of_Rajasthan" target="_blank" class="no-underline">Hill Forts of Rajasthan</a></td>
+                    <td>Rajasthan</td>
+                    <td>Cultural</td>
+                    <td>2013</td>
+                    <td><img src="hillfortphoto.webp" alt="Hill Forts of Rajasthan" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Rani_ki_Vav" target="_blank" class="no-underline">Rani-Ki-Vav(The Queen's Step Well)at Patam</a></td>
+                    <td>Gujarat</td>
+                    <td>Cultural</td>
+                    <td>2014</td>
+                    <td><img src="stepwellphoto.jpg" alt="The Queen's Step Well at Patam" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Great_Himalayan_National_Park" target="_blank" class="no-underline">Great Himalayan National Park</a></td>
+                    <td>Himachal Pradesh</td>
+                    <td>Natural</td>
+                    <td>2014</td>
+                    <td><img src="himalayanphoto.jpg" alt="Great Himalayan National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Nalanda_mahavihara" target="_blank" class="no-underline">Archaeological Site of Nalanda Mahavihara</a></td>
+                    <td>Bihar</td>
+                    <td>Educational Center</td>
+                    <td>2016</td>
+                    <td><img src="nalandaphoto.jpeg" alt="Nalanda University" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/The_Architectural_Work_of_Le_Corbusier" target="_blank" class="no-underline">The Architectural Work of Le Corbusier,an Outstanding Contribution to the Modern Movement</a></td>
+                    <td>Chandigarh</td>
+                    <td>Cultural</td>
+                    <td>2016</td>
+                    <td><img src="architecturalphoto.jpeg" alt="Architectural Work" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Khangchendzonga_National_Park" target="_blank" class="no-underline">Khangchendzonga National Park</a></td>
+                    <td>Sikkim</td>
+                    <td>Natural</td>
+                    <td>2016</td>
+                    <td><img src="Kangchenjungaphoto.jpg" alt="Khangchendzonga National Park" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Historic_City_of_Ahmadabad" target="_blank" class="no-underline">Historic City of Ahmadabad</a></td>
+                    <td>Gujarat</td>
+                    <td>Cultural</td>
+                    <td>2017</td>
+                    <td><img src="ahmedabadphoto.webp" alt="Historic City of Ahmadabad" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Victorian_Gothic_and_Art_Deco_Ensembles_of_Mumbai" target="_blank" class="no-underline">Victorian Gothic and Art Deco Ensembles of Mumbai</a></td>
+                    <td>Maharashtra</td>
+                    <td>Cultural</td>
+                    <td>2018</td>
+                    <td><img src="victorianphoto.webp" alt="Victorian Gothic" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Jaipur" target="_blank" class="no-underline">Jaipur City</a></td>
+                    <td>Rajasthan</td>
+                    <td>Cultural</td>
+                    <td>2019</td>
+                    <td><img src="jaipurphoto.jpg" alt="Jaipur City" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Dholavira" target="_blank" class="no-underline">Dholavira:A Harappam City</a></td>
+                    <td>Gujarat</td>
+                    <td>Archaeological site</td>
+                    <td>2021</td>
+                    <td><img src="dholaviraphoto.jpeg" alt="Dholavira" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Ramappa_Temple" target="_blank" class="no-underline">Kakatiya Rudreswara(Ramappa)Temple</a></td>
+                    <td>Telangana</td>
+                    <td>Cultural</td>
+                    <td>2021</td>
+                    <td><img src="templephoto.jpg" alt="Ramappa Temple" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Sacred_Ensembles_of_the_Hoysalas" target="_blank" class="no-underline">Sacred Ensembles of the Horsalas</a></td>
+                    <td>Karnataka</td>
+                    <td>Cultural,<br>Religious</td>
+                    <td>2023</td>
+                    <td><img src="somnathpurphoto.jpg" alt="Somnathpur Temple" class="site-image"></td>
+                </tr>
+                <tr>
+                    <td><a href="https://en.wikipedia.org/wiki/Shantiniketan" target="_blank" class="no-underline">Santiniketan</a></td>
+                    <td>West Bengal</td>
+                    <td>Cultural,<br>Religious</td>
+                    <td>2023</td>
+                    <td><img src="shantiniketan.jpeg" alt="Santiniketan" class="site-image"></td>
+                
+            </table>
+            
+            
+        </div>
+        <div id="Map" class="tab-content">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<footer class="footer" id="social-links-section">
+    <div class="copy">&copy; UID PROJECT</div>
+    <div class="bottom-links">
+      <div class="links">
+        <span>More Info</span>
+        <a href="https://www.bing.com/ck/a?!&&p=fbd9e13e07990f09JmltdHM9MTcxNTIxMjgwMCZpZ3VpZD0wOTkwNDViNi0xNmFhLTZmNzMtMTA0Yy01NjA3MTdkZDZlMWImaW5zaWQ9NTMxMg&ptn=3&ver=2&hsh=3&fclid=099045b6-16aa-6f73-104c-560717dd6e1b&psq=world+heritage+sites+in+india&u=a1aHR0cHM6Ly93aGMudW5lc2NvLm9yZy9lbi9saXN0Lz9zZWFyY2g9aW5kaWEmb3JkZXI9Y291bnRyeQ&ntb=1" style="text-decoration: none; color: #a1a1a1;">India-UNSECO World Heritage Convention</a>
+        <a href="https://en.m.wikipedia.org/wiki/List_of_World_Heritage_Sites_in_India" style="text-decoration: none; color: #a1a1a1;">List of World Heritage Sites in India</a>
+        <a href="https://www.indiaculture.gov.in/world-heritage" style="text-decoration: none; color: #a1a1a1;">World Heritage</a>
+        <a href="https://www.forbesindia.com/amp/article/explainers/unesco-world-heritage-sites-india/88599/1" style="text-decoration: none; color: #a1a1a1;">List of 42 UNSECO World Heritage Sites in India</a>
+        <a href="https://www.bing.com/ck/a?!&&p=a3fd410bf4352596JmltdHM9MTcxNTIxMjgwMCZpZ3VpZD0wOTkwNDViNi0xNmFhLTZmNzMtMTA0Yy01NjA3MTdkZDZlMWImaW5zaWQ9NTUyNw&ptn=3&ver=2&hsh=3&fclid=099045b6-16aa-6f73-104c-560717dd6e1b&psq=world+heritage+sites+in+india&u=a1aHR0cHM6Ly93d3cuaG9saWRpZnkuY29tL3BhZ2VzL3dvcmxkLWhlcml0YWdlLXNpdGVzLWluLWluZGlhLTE2MjkuaHRtbA&ntb=1" style="text-decoration: none; color: #a1a1a1;">42 World Heritage Sites in India</a>
+        <a href="https://www.bing.com/ck/a?!&&p=86ab036e76632d2bJmltdHM9MTcxNTIxMjgwMCZpZ3VpZD0wOTkwNDViNi0xNmFhLTZmNzMtMTA0Yy01NjA3MTdkZDZlMWImaW5zaWQ9NTQzOA&ptn=3&ver=2&hsh=3&fclid=099045b6-16aa-6f73-104c-560717dd6e1b&psq=world+heritage+sites+in+india&u=a1aHR0cHM6Ly9pbmRpYWN1bHR1cmUuZ292LmluL3dvcmxkLWhlcml0YWdl&ntb=1" style="text-decoration: none; color: #a1a1a1;">Ministry of Culture,Government of India</a>
+        <a href="https://www.bing.com/ck/a?!&&p=1b2b88b381cdefb4JmltdHM9MTcxNTIxMjgwMCZpZ3VpZD0wOTkwNDViNi0xNmFhLTZmNzMtMTA0Yy01NjA3MTdkZDZlMWImaW5zaWQ9NTQ3MQ&ptn=3&ver=2&hsh=3&fclid=099045b6-16aa-6f73-104c-560717dd6e1b&psq=world+heritage+sites+in+india&u=a1aHR0cHM6Ly93d3cud29ybGRhdGxhcy5jb20vYXJ0aWNsZXMvdW5lc2NvLXdvcmxkLWhlcml0YWdlLXNpdGVzLWluLWluZGlhLmh0bWw&ntb=1" style="text-decoration: none; color: #a1a1a1;">World Atlas</a>
+        <a href="https://www.bing.com/ck/a?!&&p=58541a646c3c7ab9JmltdHM9MTcxNTIxMjgwMCZpZ3VpZD0wOTkwNDViNi0xNmFhLTZmNzMtMTA0Yy01NjA3MTdkZDZlMWImaW5zaWQ9NTM2NQ&ptn=3&ver=2&hsh=3&fclid=099045b6-16aa-6f73-104c-560717dd6e1b&psq=world+heritage+sites+in+india&u=a1aHR0cHM6Ly9nZW9ncmFwaHlob3N0LmNvbS91bmVzY28td29ybGQtaGVyaXRhZ2Utc2l0ZXMtaW4taW5kaWEv&ntb=1" style="text-decoration: none; color: #a1a1a1;">Geography Host</a>
+      </div>
+      <div class="links">
+        <span>Social Links</span>
+        <a href="https://www.facebook.com/unesco?mibextid=kFxxJD"><i class="fab fa-facebook"></i></a><br>
+        <a href="https://x.com/UNESCO?t=wi5M2966Vs3bgqOT-pU30w&s=08 "><i class="fab fa-twitter"></i></a><br>
+        <a href="https://www.instagram.com/unesco?igsh=NmxhejRjOGY1ZDdx"><i class="fab fa-instagram"></i></a><br>
+      </div>
+      <div class="links">
+        <span>Contact Us</span>
+        <a href="mailto:example@example.com"><i class="fas fa-envelope"></i></a><br>
+        <a href="tel:+1234567890"><i class="fas fa-phone"></i></a><br>
+        <a href="https://maps.google.com/?q=123+Main+Street+City+Country"><i class="fas fa-map-marker-alt"></i></a><br>
+    </div>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+let map;
+function showContent(tabName) {
+    /* Hide all tab content */
+    var tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(function(tabContent) {
+        tabContent.style.display = 'none';
+    });
+
+    /* Deactivate all tabs */
+    var tabs = document.querySelectorAll('.tab');
+    tabs.forEach(function(tab) {
+        tab.classList.remove('active');
+    });
+
+    /* Show selected tab content */
+    document.getElementById(tabName).style.display = 'block';
+
+    /* Activate selected tab */
+    document.querySelector('[onclick="showContent(\'' + tabName + '\')"]').classList.add('active');
+
+    /* Initialize map if "Map" tab is selected */
+    if (tabName === 'Map') {
+        initializeMap();
+    }
+}
+
+function initializeMap() {
+    if (!map) {
+        map = L.map('map').setView([20.5937, 78.9629], 5);    /* Sets the initial view of the map */
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var heritageSites = [
+        { name: "Taj Mahal", coords: [27.1751, 78.0421] },
+        { name: "Qutub Minar", coords: [28.5244, 77.1855] },
+        { name: "Red Fort", coords: [28.6562, 77.2410] },
+        { name: "Ajanta Caves", coords: [20.5520, 75.7033] }, 
+        { name: "Ellora Caves", coords: [20.0266, 75.1790] }, 
+        { name: "Group of Monuments at Mahabalipuram", coords: [12.6208, 80.1937] }, 
+        { name: "Sun Temple", coords: [19.8876, 86.0945] }, 
+        { name: "Kaziranga National Park", coords: [26.5775, 93.1710] }, 
+        { name: "Keoladeo National Park", coords: [27.1591, 77.5236] }, 
+        { name: "Manas Wildlife Sanctuary", coords: [26.7494, 91.0155] }, 
+        { name: "Churches and Convents of Goa", coords: [15.5000, 73.9100] }, 
+        { name: "Fatehpur Sikri", coords: [27.0937, 77.6615] }, 
+        { name: "Group of Monuments at Hampi", coords: [15.3350, 76.4600] }, 
+        { name: "Khajuraho Group of Monuments", coords: [24.8318, 79.9199] }, 
+        { name: "Elephanta Caves", coords: [18.9633, 72.9316] }, 
+        { name: "Great Living Chola Temples", coords: [10.7769, 79.1378] }, 
+        { name: "Group of Monuments at Pattadakal", coords: [15.9476, 75.8190] }, 
+        { name: "Sundarbans National Park", coords: [21.9497, 88.7216] }, 
+        { name: "Nanda Devi and Valley of Flowers National Park", coords: [30.7280, 79.6059] }, 
+        { name: "Buddhist Monuments at Sanchi", coords: [23.4868, 77.7378] }, 
+        { name: "Humayun's Tomb", coords: [28.5933, 77.2507] }, 
+        { name: "Mountain Railways of India", coords: [11.0590, 76.7330] },
+        { name: "Mahabodhi Temple Complex at Bodh Gaya", coords: [24.6968, 84.9916] }, 
+        { name: "Rock shelters of Bhimbetka", coords: [22.9375, 77.6125] },
+        { name: "Chhatrapati Shivaji Terminus", coords: [18.9402, 72.8356] }, 
+        { name: "Champaner-Pavagadh Archaeological Park", coords: [22.4854, 73.5333] }, 
+        { name: "Jantar Mantar", coords: [28.6270, 77.2153] }, 
+        { name: "Western Ghats", coords: [10.3521, 76.5125] }, 
+        { name: "Hill Forts of Rajasthan", coords: [24.5933, 73.7133] }, 
+        { name: "Rani-Ki-Vav(The Queen's Step Well)at Patan", coords: [23.8500, 72.1207] }, 
+        { name: "Great Himalayan National Park", coords: [31.7386, 77.5780] }, 
+        { name: "Archaeological Site of Nalanda Mahavihara", coords: [25.1357, 85.4433] }, 
+        { name: "The Architectural Work of Le Corbusier,an Outstanding Contribution to the Modern Movement", coords: [30.7333, 76.7794] }, // Corrected coordinates
+        { name: "Khangchendzonga National Park", coords: [27.6796, 88.4385] }, 
+        { name: "Historic City of Ahmadabad", coords: [23.0225, 72.5714] }, 
+        { name: "Victorian Gothic and Art Deco Ensembles of Mumbai", coords: [18.9206, 72.8326] }, 
+        { name: "Jaipur City", coords: [26.9124, 75.7873] }, 
+        { name: "Dholavira:A Harappan City", coords: [23.8917, 70.3606] }, 
+        { name: "Kakatiya Rudreswara (Ramappa) Temple", coords: [18.2448, 79.1469] }, 
+        { name: "Sacred Ensembles of the Hoysala", coords: [12.8592, 76.0917] }, 
+        { name: "Santiniketan", coords: [23.6775, 87.6852] }, 
+        ];
+
+        heritageSites.forEach(function(site) {
+            L.marker(site.coords).addTo(map)
+                .bindPopup(site.name);
+        });
+    } else {
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 100);
+    }
+}
+</script>
+</body>
+</html>
