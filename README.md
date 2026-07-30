@@ -11,7 +11,6 @@ A responsive website showcasing India's UNESCO World Heritage Sites with histori
 - HTML
 - CSS
 - Java Script
-- Images
 
 ## Author
 Nishith Reddy
